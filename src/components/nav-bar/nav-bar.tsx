@@ -24,7 +24,7 @@ export function isActiveRoute(locationPath: string, path: string) {
 export const NavBar: React.FunctionComponent<NavBarProps> = (props: NavBarProps, context: AppContext) => {
     const locationPath = context.router.route.location.pathname;
     const navBarStyle = {
-        ...(props.style?.backgroundColor && {background: `linear-gradient(to bottom, ${props.style?.backgroundColor}, #999`}),
+        ...(props.style?.backgroundColor && {background: `linear-gradient(to bottom, ${props.style?.backgroundColor}, #052e4c`}),
     };
     return (
         <div className={classNames('nav-bar', {
@@ -32,7 +32,7 @@ export const NavBar: React.FunctionComponent<NavBarProps> = (props: NavBarProps,
         })} style={navBarStyle}>
             <div className='nav-bar__logo'>
                 <img src='assets/images/logo.png' alt='Argo'/>
-                <div className='nav-bar__version'>{props.version && props.version()}</div>
+                {/* <div className='nav-bar__version'>{props.version && props.version()}</div> */}
                 {(props.items || []).map((item) => (
                     <Tooltip content={item.title} placement='right' arrow={true} key={item.path + item.title}>
                         <div className={classNames('nav-bar__item', { active: isActiveRoute(locationPath, item.path) })}
